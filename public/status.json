@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-10-20T13:41:47.957387+00:00",
+  "jobs": 20415,
+  "successful_sources": 23,
+  "total_sources": 29,
+  "partial_sources": [
+    "unicef",
+    "bosch",
+    "sgs",
+    "ubisoft"
+  ],
+  "failed_sources": [
+    "unesco",
+    "eurofins",
+    "expeditors",
+    "hmgroup",
+    "continental",
+    "interikea"
+  ],
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/39432058697"
+}
