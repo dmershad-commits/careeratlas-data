@@ -1,12 +1,14 @@
 {
-  "generated_at": "2026-10-20T15:59:58.297462+00:00",
-  "jobs": 20540,
+  "generated_at": "2026-10-20T18:26:52.615048+00:00",
+  "jobs": 20587,
   "successful_sources": 29,
   "total_sources": 29,
   "partial_sources": [
     "unicef",
-    "eurofins"
+    "bosch",
+    "eurofins",
+    "hmgroup"
   ],
   "failed_sources": [],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/39452820276"
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/39474159441"
 }
