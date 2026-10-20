@@ -20,11 +20,14 @@ jobs:
       - name: Prepare collector and restore published state
         run: |
           unzip -q -o collector.zip -d runtime
+          unzip -q -o repairs.zip -d runtime
           mkdir -p runtime/dist public
           if [ -f public/state.json.gz ]; then cp public/state.json.gz runtime/public/state.json.gz; fi
       - name: Test state isolation
         working-directory: runtime
-        run: python test_cloud.py
+        run: |
+          python test_cloud.py
+          python test_repairs.py
       - name: Collect and validate official sources
         working-directory: runtime
         run: python cloud_refresh.py
