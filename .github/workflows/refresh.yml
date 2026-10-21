@@ -52,6 +52,10 @@ jobs:
         run: |
           unzip -q -o collector.zip -d runtime
           unzip -q -o repairs.zip -d runtime
+          python add_sources.py runtime
+          python add_un_sources.py runtime
+          cp test_expansion.py runtime/test_expansion.py
+          PYTHONPATH=runtime/collector python test_un_sources.py
           mkdir -p runtime/dist public
           if [ -f public/state.json.gz ]; then cp public/state.json.gz runtime/public/state.json.gz; fi
       - name: Test state isolation
@@ -60,6 +64,7 @@ jobs:
         run: |
           python test_cloud.py
           python test_repairs.py
+          python test_expansion.py
       - name: Collect and validate official sources
         if: steps.due.outputs.refresh == 'true'
         working-directory: runtime
