@@ -30,3 +30,7 @@ patch(p,'        j=dict(row)','        j=dict(row)\n        if j.get("employer_n
 patch(p,'        j.update(facets.classify(j))','        j.update(facets.classify(j))\n        if j.get("job_industry"):j["industry"]=j["job_industry"]')
 (ROOT/'collector/country_feed.py').write_text((Path(__file__).parent/'country_feed.py').read_text(encoding='utf-8-sig'),encoding='utf-8')
 print('Enabled AECOM, EDC and bounded Sweden JobSearch; employer attribution preserved.')
+# Install the separately reviewed mixed employee/freelance employer board.
+import runpy, subprocess
+runpy.run_path(str(Path(__file__).parent/'add_freelance.py'),run_name='__main__')
+subprocess.run([sys.executable,'test_freelance.py'],cwd=ROOT,check=True)
