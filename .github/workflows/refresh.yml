@@ -33,7 +33,12 @@ jobs:
                   receipt=json.loads(Path("public/scheduler.json").read_text())
                   last=datetime.fromisoformat(status["generated_at"])
                   age=(datetime.now(timezone.utc)-last).total_seconds()
-                  due=age>=43200 or age<0 or receipt["event"]!="schedule"
+                  now=datetime.now(timezone.utc)
+                  slot=now.replace(hour=14 if now.hour>=14 else 2,minute=0,second=0,microsecond=0)
+                  if now.hour<2:
+                      from datetime import timedelta
+                      slot=(slot-timedelta(days=1)).replace(hour=14)
+                  due=last<slot or age>=43200 or age<0 or receipt["event"]!="schedule"
                   reason="catalogue overdue" if due else "catalogue is current"
               except (OSError,ValueError,KeyError,TypeError):
                   due=True
@@ -95,5 +100,6 @@ jobs:
           git add public/
           if ! git diff --cached --quiet; then
             git commit -m "Refresh official-source job summaries"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
