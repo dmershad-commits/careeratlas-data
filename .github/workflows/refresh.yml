@@ -52,54 +52,19 @@ jobs:
         if: steps.due.outputs.refresh == 'true'
         with:
           python-version: '3.12'
-      - name: Prepare collector and restore published state
-        if: steps.due.outputs.refresh == 'true'
-        run: |
-          unzip -q -o collector.zip -d runtime
-          unzip -q -o repairs.zip -d runtime
-          python add_sources.py runtime
-          python add_un_sources.py runtime
-          cp test_expansion.py runtime/test_expansion.py
-          PYTHONPATH=runtime/collector python test_un_sources.py
-          mkdir -p runtime/dist public
-          if [ -f public/state.json.gz ]; then cp public/state.json.gz runtime/public/state.json.gz; fi
-      - name: Test state isolation
-        if: steps.due.outputs.refresh == 'true'
-        working-directory: runtime
-        run: |
-          python test_cloud.py
-          python test_repairs.py
-          python test_expansion.py
-      - name: Collect and validate official sources
-        if: steps.due.outputs.refresh == 'true'
-        working-directory: runtime
-        run: python cloud_refresh.py
-      - name: Audit official application links
-        if: steps.due.outputs.refresh == 'true'
-        run: |
-          if [ -f public/link-health.json ]; then cp public/link-health.json runtime/public/; fi
-          python quality_audit.py runtime
-          cp runtime/public/link-health.json public/
-      - name: Publish public data
+      - name: Test and refresh licensed records
         if: steps.due.outputs.refresh == 'true'
         env:
           EVENT_NAME: ${{ github.event_name }}
           CRON: ${{ github.event.schedule }}
         run: |
-          cp runtime/public/jobs.json.gz runtime/public/state.json.gz runtime/public/status.json public/
-          python - <<'PY'
-          import json,os
-          from pathlib import Path
-          status=json.loads(Path("public/status.json").read_text())
-          if os.environ["EVENT_NAME"]=="schedule":
-              receipt={"event":"schedule","cron":os.environ["CRON"],"generated_at":status["generated_at"],"run_url":status["run_url"]}
-              Path("public/scheduler.json").write_text(json.dumps(receipt,indent=2))
-          PY
-          git config user.name "careeratlas-updater"
-          git config user.email "careeratlas-updater@users.noreply.github.com"
+          python licensed_refresh.py --test
+          python licensed_refresh.py
+          git config user.name careeratlas-updater
+          git config user.email careeratlas-updater@users.noreply.github.com
           git add public/
           if ! git diff --cached --quiet; then
-            git commit -m "Refresh official-source job summaries"
+            git commit -m 'Refresh licensed vacancy data'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
