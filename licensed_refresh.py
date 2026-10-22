@@ -39,14 +39,20 @@ def normalize(j,now):
  return dict(id='sweden-jobsearch:'+ident,title=title,organization=org,sector='Not stated',location=location,work_mode=mode,url=url,source_url=notice,posted_on=j.get('publication_date'),deadline=end,closed=False,career_level='unknown',countries=[country] if country else [],industry=field,summary=f'Occupational field: {field}. Confirm requirements and application instructions in the original notice.',availability='listed',salary=None,attribution='Swedish Public Employment Service — JobSearch (CC0)',last_seen=now,first_seen=now,reuse_license='CC0-1.0',reuse_evidence=LICENCE)
 def collect():
  now=datetime.now(timezone.utc).isoformat();rows={}
- for offset in range(0,500,100):
-  req=Request(API+f'?limit=100&offset={offset}&sort=pubdate-desc',headers={'User-Agent':'CareerAtlas/1.0 (public CC0 vacancy search)'})
-  with urlopen(req,timeout=40) as r:page=json.load(r)
+ for offset in range(0,500,50):
+  req=Request(API+f'?limit=50&offset={offset}&sort=pubdate-desc',headers={'User-Agent':'CareerAtlas/1.0 (public CC0 vacancy search)'})
+  for attempt in range(3):
+   try:
+    with urlopen(req,timeout=40) as r:page=json.load(r)
+    break
+   except Exception:
+    if attempt==2:raise
+    time.sleep(2)
   if not isinstance(page.get('hits'),list):raise ValueError('Unexpected API response')
   for item in page['hits']:
    row=normalize(item,now)
    if row:rows[row['id']]=row
-  if len(page['hits'])<100:break
+  if len(page['hits'])<50:break
   time.sleep(.3)
  if not rows:raise ValueError('No current licensed records; previous data retained')
  return dict(generated_at=now,reuse_policy='licensed-only-v1',jobs=list(rows.values()),sources=[dict(name='Swedish Public Employment Service — JobSearch',url='https://jobtechdev.se/en/products/jobsearch',enabled=True,license='CC0-1.0',last=dict(status='partial',finished_at=now,fetched=len(rows)))])
