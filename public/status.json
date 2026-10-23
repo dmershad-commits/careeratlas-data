@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T07:15:10.735178+00:00",
-  "jobs": 27390,
+  "generated_at": "2026-10-23T09:56:03.174627+00:00",
+  "jobs": 27980,
   "successful_sources": 35,
   "total_sources": 35,
   "partial_sources": [
@@ -8,7 +8,7 @@
     "sweden-jobsearch"
   ],
   "failed_sources": [],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/39915994602",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/39934783165",
   "quality": {
     "links_checked_this_run": 300,
     "confirmed_broken": 0,
