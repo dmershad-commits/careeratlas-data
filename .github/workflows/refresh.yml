@@ -57,6 +57,7 @@ jobs:
         run: |
           unzip -q -o collector.zip -d runtime
           unzip -q -o repairs.zip -d runtime
+          sed -i "s/for row in data\[table\]:/for row in data.get(table, []):/" runtime/cloud_refresh.py
           python add_sources.py runtime
           python add_un_sources.py runtime
           cp test_expansion.py runtime/test_expansion.py
