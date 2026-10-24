@@ -1,0 +1,58 @@
+name: Refresh Bangladesh remote and scholarship collection
+on:
+  schedule:
+    - cron: '0 2,14 * * *'
+    - cron: '37 * * * *'
+  push:
+    paths:
+      - 'focus_refresh.py'
+      - 'focus-scholarships.json'
+      - 'test_focus.py'
+      - '.github/workflows/focus.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: careeratlas-refresh
+  cancel-in-progress: false
+jobs:
+  focus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Determine current 12-hour slot
+        id: due
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import os,json
+          from pathlib import Path
+          from datetime import datetime,timezone,timedelta
+          now=datetime.now(timezone.utc)
+          slot=now.replace(hour=14 if now.hour>=14 else 2,minute=0,second=0,microsecond=0)
+          if now.hour<2:slot=(slot-timedelta(days=1)).replace(hour=14)
+          due=True
+          if os.environ['EVENT']=='schedule':
+              try:due=datetime.fromisoformat(json.loads(Path('public/focus.json').read_text())['generated_at'])<slot
+              except (OSError,ValueError,KeyError):pass
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('run='+str(due).lower()+'\n')
+          PY
+      - name: Test closed roles geography and replacement rules
+        if: steps.due.outputs.run == 'true'
+        run: python test_focus.py
+      - name: Read official public sources
+        if: steps.due.outputs.run == 'true'
+        run: python focus_refresh.py
+      - name: Publish public collection
+        if: steps.due.outputs.run == 'true'
+        run: |
+          git config user.name careeratlas-updater
+          git config user.email careeratlas-updater@users.noreply.github.com
+          git add public/focus.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh Bangladesh, worldwide remote and scholarship information"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
