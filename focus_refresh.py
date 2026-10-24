@@ -94,7 +94,10 @@ def main():
         try:
             rows=parser(json.loads(fetch(url)),now)
             if not rows:raise ValueError('No eligible current records')
-            groups[key]=pick(rows,old.get(key,[]),4,now)
+            # Keep the owner's original reviewed selections while still present and current.
+            originals={'bangladesh':['brac-live:3080','brac-live:3084'],'remote':['canonical-live:3290946','canonical-live:6635593']}[key]
+            prior=[{'id':id} for id in originals]+[r for r in old.get(key,[]) if r['id'] not in originals]
+            groups[key]=pick(rows,prior,4,now)
             sources.append(dict(name=key,url=url,status='ok',eligible_count=len(rows),checked_at=now.isoformat()))
         except Exception:
             # Never relabel failed requests as successful checks or show old jobs as current.
