@@ -14,6 +14,7 @@ class FocusTests(unittest.TestCase):
  def test_replacement_and_removal(self):
   rows=[dict(id='new',deadline=None),dict(id='expired',deadline='2026-01-01T00:00:00Z')]
   self.assertEqual([r['id'] for r in pick(rows,[dict(id='removed')],2,NOW)],['new'])
+  self.assertEqual(pick([dict(id='a',deadline=None,first_seen='new')],[dict(id='a',first_seen='original')],2,NOW)[0]['first_seen'],'original')
  def test_changed_scholarships_fail_closed(self):
   r=dict(id='s',provider='University',source_url='https://example.org',evidence_sha256=signature('<p>Official terms</p>'))
   self.assertEqual(len(check_scholarships([r],NOW,lambda _: '<p>Official terms</p>')[0]),1)

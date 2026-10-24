@@ -84,7 +84,12 @@ def check_scholarships(seeds,now,fetcher=fetch):
     return good,issues
 def pick(rows,previous,limit,now):
     valid={r['id']:r for r in rows if active(r.get('deadline'),now)}
-    retained=[valid.pop(r['id']) for r in previous if r['id'] in valid]
+    retained=[]
+    for r in previous:
+        if r['id'] in valid:
+            current=valid.pop(r['id'])
+            if r.get('first_seen'):current['first_seen']=r['first_seen']
+            retained.append(current)
     return (retained+list(valid.values()))[:limit]
 def main():
     now=datetime.now(UTC);public=ROOT/'public';public.mkdir(exist_ok=True)
@@ -96,7 +101,8 @@ def main():
             if not rows:raise ValueError('No eligible current records')
             # Keep the owner's original reviewed selections while still present and current.
             originals={'bangladesh':['brac-live:3080','brac-live:3084'],'remote':['canonical-live:3290946','canonical-live:6635593']}[key]
-            prior=[{'id':id} for id in originals]+[r for r in old.get(key,[]) if r['id'] not in originals]
+            prior_by_id={r['id']:r for r in old.get(key,[])}
+            prior=[prior_by_id.get(id,{'id':id}) for id in originals]+[r for r in old.get(key,[]) if r['id'] not in originals]
             groups[key]=pick(rows,prior,4,now)
             sources.append(dict(name=key,url=url,status='ok',eligible_count=len(rows),checked_at=now.isoformat()))
         except Exception:
