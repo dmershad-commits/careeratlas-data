@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-01T07:32:57.299801+00:00",
-  "jobs": 39879,
+  "generated_at": "2026-11-01T08:58:46.354426+00:00",
+  "jobs": 39904,
   "successful_sources": 34,
   "total_sources": 35,
   "partial_sources": [
@@ -10,7 +10,7 @@
   "failed_sources": [
     "unfpa"
   ],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/41284870533",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/41290703576",
   "quality": {
     "links_checked_this_run": 300,
     "confirmed_broken": 0,
