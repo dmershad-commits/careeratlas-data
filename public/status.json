@@ -1,16 +1,15 @@
 {
-  "generated_at": "2026-11-02T06:00:22.868438+00:00",
-  "jobs": 40444,
-  "successful_sources": 34,
+  "generated_at": "2026-11-02T09:07:45.754845+00:00",
+  "jobs": 41054,
+  "successful_sources": 35,
   "total_sources": 35,
   "partial_sources": [
     "unicef",
+    "aecom",
     "sweden-jobsearch"
   ],
-  "failed_sources": [
-    "unfpa"
-  ],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/41396672050",
+  "failed_sources": [],
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/41417357091",
   "quality": {
     "links_checked_this_run": 300,
     "confirmed_broken": 0,
