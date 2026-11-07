@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07T08:35:20.173846+00:00",
-  "jobs": 49928,
+  "generated_at": "2026-11-07T16:27:58.035742+00:00",
+  "jobs": 50005,
   "successful_sources": 34,
   "total_sources": 35,
   "partial_sources": [
@@ -10,11 +10,11 @@
   "failed_sources": [
     "hmgroup"
   ],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/42355701765",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/42390993332",
   "quality": {
     "links_checked_this_run": 300,
     "confirmed_broken": 0,
-    "expired": 1082,
+    "expired": 1085,
     "scope": "Rotating 300 supported official links per run; 403,429,redirects and timeouts remain unknown."
   }
 }
