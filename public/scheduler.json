@@ -1,6 +1,6 @@
 {
   "event": "schedule",
-  "cron": "0 2,14 * * *",
-  "generated_at": "2026-11-07T18:35:50.494596+00:00",
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/42401607643"
+  "cron": "11 * * * *",
+  "generated_at": "2026-11-08T07:20:05.486571+00:00",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/42457996222"
 }
