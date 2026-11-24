@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23T20:29:13.412840+00:00",
+  "generated_at": "2026-11-24T04:55:54.530997+00:00",
   "schedule": "02:00 and 14:00 UTC (08:00 and 20:00 Asia/Dhaka); provider delays possible",
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/45259835500",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/45329750277",
   "event": "schedule",
   "bangladesh": [
     {
@@ -25,8 +25,8 @@
       "review_mode": "feed",
       "attribution": "BRAC — official public vacancy feed",
       "first_seen": "2026-11-20T18:45:23.991669+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": "2026-11-26T00:00:00+06:00",
       "posted_on": "2026-11-16 00:00:00",
       "deadline_raw": "2026-11-26 00:00:00 Bangladesh time; conservatively expires at start of date",
@@ -53,8 +53,8 @@
       "review_mode": "feed",
       "attribution": "BRAC — official public vacancy feed",
       "first_seen": "2026-11-20T18:45:23.991669+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": "2026-11-28T00:00:00+06:00",
       "posted_on": "2026-11-11 00:00:00",
       "deadline_raw": "2026-11-28 00:00:00 Bangladesh time; conservatively expires at start of date",
@@ -81,8 +81,8 @@
       "review_mode": "feed",
       "attribution": "BRAC — official public vacancy feed",
       "first_seen": "2026-11-22T02:35:31.528842+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": "2026-11-28T00:00:00+06:00",
       "posted_on": "2026-11-17 00:00:00",
       "deadline_raw": "2026-11-28 00:00:00 Bangladesh time; conservatively expires at start of date",
@@ -109,8 +109,8 @@
       "review_mode": "feed",
       "attribution": "BRAC — official public vacancy feed",
       "first_seen": "2026-11-23T08:05:34.626549+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": "2026-11-28T00:00:00+06:00",
       "posted_on": "2026-11-17 00:00:00",
       "deadline_raw": "2026-11-28 00:00:00 Bangladesh time; conservatively expires at start of date",
@@ -137,8 +137,8 @@
       "review_mode": "feed",
       "attribution": "Canonical — official public vacancy feed",
       "first_seen": "2026-10-24T07:29:12.603698+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": null,
       "posted_on": null,
       "summary": "Employer lists worldwide home-based work. Confirm role-specific qualifications, local hiring eligibility, work authorization, travel and sponsorship with Canonical. Worldwide wording does not guarantee eligibility.",
@@ -163,8 +163,8 @@
       "review_mode": "feed",
       "attribution": "Canonical — official public vacancy feed",
       "first_seen": "2026-10-24T07:29:12.603698+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": null,
       "posted_on": null,
       "summary": "Employer lists worldwide home-based work. Confirm role-specific qualifications, local hiring eligibility, work authorization, travel and sponsorship with Canonical. Worldwide wording does not guarantee eligibility.",
@@ -189,8 +189,8 @@
       "review_mode": "feed",
       "attribution": "Canonical — official public vacancy feed",
       "first_seen": "2026-10-24T07:29:12.603698+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": null,
       "posted_on": null,
       "summary": "Employer lists worldwide home-based work. Confirm role-specific qualifications, local hiring eligibility, work authorization, travel and sponsorship with Canonical. Worldwide wording does not guarantee eligibility.",
@@ -215,8 +215,8 @@
       "review_mode": "feed",
       "attribution": "Canonical — official public vacancy feed",
       "first_seen": "2026-10-24T07:29:12.603698+00:00",
-      "last_seen": "2026-11-23T20:29:13.412840+00:00",
-      "checked": "2026-11-23T20:29:13.412840+00:00",
+      "last_seen": "2026-11-24T04:55:54.530997+00:00",
+      "checked": "2026-11-24T04:55:54.530997+00:00",
       "deadline": null,
       "posted_on": null,
       "summary": "Employer lists worldwide home-based work. Confirm role-specific qualifications, local hiring eligibility, work authorization, travel and sponsorship with Canonical. Worldwide wording does not guarantee eligibility.",
@@ -231,28 +231,28 @@
       "url": "https://er-api.brac.net/api/v1/job/public/job-posts/?limit=100",
       "status": "ok",
       "eligible_count": 10,
-      "checked_at": "2026-11-23T20:29:13.412840+00:00"
+      "checked_at": "2026-11-24T04:55:54.530997+00:00"
     },
     {
       "name": "remote",
       "url": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
       "status": "ok",
       "eligible_count": 96,
-      "checked_at": "2026-11-23T20:29:13.412840+00:00"
+      "checked_at": "2026-11-24T04:55:54.530997+00:00"
     }
   ],
   "scholarship_issues": [
     {
       "source": "European Commission / participating universities",
-      "status": "Unavailable or changed; withheld pending review"
+      "status": "deadline passed or review due"
     },
     {
       "source": "University of Oxford",
-      "status": "Unavailable or changed; withheld pending review"
+      "status": "deadline passed or review due"
     },
     {
       "source": "University of Melbourne",
-      "status": "Unavailable or changed; withheld pending review"
+      "status": "deadline passed or review due"
     }
   ],
   "managed_scholarship_ids": [
