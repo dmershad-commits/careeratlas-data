@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-11-26T10:41:35.268789+00:00",
-  "jobs": 76663,
-  "successful_sources": 34,
+  "generated_at": "2026-11-26T15:09:49.711594+00:00",
+  "jobs": 77305,
+  "successful_sources": 33,
   "total_sources": 35,
   "partial_sources": [
     "sweden-jobsearch"
   ],
   "failed_sources": [
-    "unicef"
+    "unicef",
+    "unfpa"
   ],
-  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/45802722299",
+  "run_url": "https://github.com/dmershad-commits/careeratlas-data/actions/runs/45845258648",
   "quality": {
     "links_checked_this_run": 300,
     "confirmed_broken": 0,
-    "expired": 9363,
+    "expired": 9389,
     "scope": "Rotating 300 supported official links per run; 403,429,redirects and timeouts remain unknown."
   }
 }
